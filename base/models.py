@@ -37,3 +37,10 @@ class Employee(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+
+
+# class Log(models.Model):
+#     timestamp = models.DateTimeField(auto_now_add=True)
+#     number_of_employee_data = models.IntegerField()
+#     status = models.CharField(max_length=15)
+#     error = models.CharField(max_length=100)

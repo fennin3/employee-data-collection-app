@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %} {% block title %} Upload Data {% endblock title%}
+{% block body %}
+
+<div
+  class="shadow-lg card"
+  style="
+    width: 500px;
+ 
+    align-items: center;
+    margin: auto;
+    margin-top: 6%;
+  "
+>
+  <form
+    style="width: 90%"
+    class="mt-auto"
+    action="{% url 'upload_data' %}"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    <div class="mb-3 mt-auto mb-auto">
+      <label for="formFile" class="form-label"
+        >Please Choose Data file (employee data) <br> <b>NB:</b> Please file must be and Excel Workbook with ".xlsx" extension</label
+      >
+      <input class="form-control" type="file" id="formFile" name="file" />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-dark mb-3 mt-2"
+      style="margin-left: 35%"
+    >
+      Upload Data
+    </button>
+  </form>
+</div>
+
+{% endblock body %}
