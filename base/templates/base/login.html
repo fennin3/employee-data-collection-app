@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %} {% block body %}
+
+<h1 class="mt-5" style="text-align: center; font-style: italic">
+  Employee Data Collection App
+</h1>
+<div
+  class="border p-5 shadow-lg card"
+  style="
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    margin-top: 70px;
+  "
+>
+  <form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        name="username"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        name="password"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-dark">Login</button>
+  </form>
+</div>
+
+{% endblock body %}

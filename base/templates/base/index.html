@@ -1,0 +1,117 @@
+{% extends 'base/base.html' %} {% block title %} Home {% endblock title %}
+{%load crispy_forms_tags %} {% block body %}
+<div><h3 style="text-align: center" class="mt-5">Employee Records</h3></div>
+<div class="d-none d-lg-block">
+  <div
+    class="shadow-lg card p-3"
+    style=" margin: 8%; margin-top: 3%; min"
+  >
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Number</th>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">Date Of Birth</th>
+          <th scope="col">Date Of Employment</th>
+          <th scope="col">Position</th>
+          <th scope="col">Department</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Supurvisors</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for employee in employees %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{employee.first_name}} {{employee.last_name}}</td>
+          <td>{{employee.age}}</td>
+          <td>{{employee.date_of_birth}}</td>
+          <td>{{employee.date_of_employment}}</td>
+          <td>{{employee.position}}</td>
+          <td>{{employee.department}}</td>
+          <td>{{employee.salary}}</td>
+          <td>
+            {% for supervisor in employee.supervisors.all %}{{supervisor}}
+            {%endfor %}
+          </td>
+        </tr>
+        {% endfor %}
+        <!-- <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird Ennin</td>
+      <td>@twitter</td>
+    </tr>
+     <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr> -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="d-lg-none">
+  <div
+    class="shadow-lg"
+    style="background-color: rgba(0, 0, 0, 0.2); margin-top: 4%"
+  >
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Number</th>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">Date Of Birth</th>
+          <th scope="col">Date Of Employment</th>
+          <th scope="col">Position</th>
+          <th scope="col">Department</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Supurvisors</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for employee in employees %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{employee.first_name}} {{employee.last_name}}</td>
+          <td>{{employee.age}}</td>
+          <td>{{employee.date_of_birth}}</td>
+          <td>{{employee.date_of_employment}}</td>
+          <td>{{employee.position}}</td>
+          <td>{{employee.department}}</td>
+          <td>{{employee.salary}}</td>
+          <td>
+            {% for supervisor in employee.supervisors.all %}{{supervisor}}
+            {%endfor %}
+          </td>
+        </tr>
+        {% endfor %}
+        <!-- <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird Ennin</td>
+      <td>@twitter</td>
+    </tr>
+     <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr> -->
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock body %}

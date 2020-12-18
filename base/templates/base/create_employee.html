@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %} {% block title %}Create Employee {% endblock title %} {% load crispy_forms_tags %} {% block body %}
+
+
+<div class="d-none d-lg-block">
+	<h3 style="text-align: center;" class="mt-3">Employee Creation</h3>
+        <form method="POST" action="{% url 'create_employee' %}" class=" card shadow-lg" style="margin-top: 40px; margin-right: 300px; margin-left: 300px; margin-bottom: 40px;">
+        {% csrf_token %}
+        <fieldset class=" p-4 border form-group">
+            {% comment %} <legend class="border-bottom mb-2" style="text-align: center;"><b>Join Today</b></legend> {% endcomment %}
+    
+            <div class="form-group">
+                {{form|crispy}}
+            </div>
+            
+            <button type="submit" class="btn btn-dark mt-3" style="margin-left: 40%;">Create</button>
+            
+        </fieldset>
+    </form>
+    </div>
+
+
+    <div class="d-lg-none">
+    	<h3 style="text-align: center;" class="mt-3">Employee Creation</h3>
+        <form method="POST" action="{% url 'create_employee' %}" class="card shadow-lg" style="margin-top: 40px; margin-bottom: 40px;">
+        {% csrf_token %}
+        <fieldset class=" p-4 border form-group">
+            {% comment %} <legend class="border-bottom mb-2" style="text-align: center;"><b>Create Employee</b></legend> {% endcomment %}
+    
+            <div class="form-group">
+                {{form|crispy}}
+            </div>
+            
+            <buttontype="submit" class="btn btn-dark mt-3" style="margin-left: 40%;">Submit</button>
+            
+        </fieldset>
+    </form>
+    </div>
+
+{% endblock body %}
