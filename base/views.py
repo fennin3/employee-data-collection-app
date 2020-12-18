@@ -92,20 +92,19 @@ def upload_data(request):
                         employee.supervisors.add(i)
                     employee.save()
                     sub2 = []
-                # log = Log.objects.create(
-                #     number_of_employee_data=wb.max_row - 1,
-                #     status="Successful",
-                #     error="No errors",
-                # )
-                # log.save()
+                log = Log.objects.create(
+                    number_of_employee_data=wb.max_row - 1,
+                    status="Successful",
+                    error="No errors",
+                )
+                log.save()
             except Exception as e:
-                pass
-                # log = Log.objects.create(
-                #     number_of_employee_data=wb.max_row,
-                #     status="Unsuccessful",
-                #     error=e,
-                # )
-                # log.save()
+                log = Log.objects.create(
+                    number_of_employee_data=wb.max_row,
+                    status="Unsuccessful",
+                    error=e,
+                )
+                log.save()
 
             return redirect("home")
         elif ext == "":
