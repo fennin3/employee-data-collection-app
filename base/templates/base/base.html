@@ -39,16 +39,15 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'log' %}">Logs</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Emplyees Data</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="{% url 'create_employee' %}"
               >Create Employee</a
             >
           </li>
         </ul>
-        <div
+        {% if user.is_authenticated %}
+         <a href="{% url 'logout' %}" style="text-decoration: none"><div
           style="
             margin-right: 70px;
             margin-top: auto;
@@ -59,7 +58,9 @@
           class="bg-dark mt-1"
         >
           <p style="color: white">Logout</p>
-        </div>
+        </div></a>
+        {% endif %}
+       
       </div>
     </div>
   </nav>
