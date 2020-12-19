@@ -22,7 +22,7 @@ class Employee(models.Model):
     age = models.IntegerField()
     date_of_birth = models.DateField(help_text="format: yy-mm-dd (eg. 2020-12-14)")
     date_of_employment = models.DateField(
-        help_text="format: yy-mm-dd (eg. 2020-12-14)", default="2017-04-09"
+        help_text="format: yy-mm-dd (eg. 2020-12-14)",
     )
     position = models.CharField(max_length=30)
     department = models.CharField(max_length=100)
